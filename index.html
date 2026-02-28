@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Vérification de Note</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #5f2c82, #8e44ad);
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    width: 320px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    background: #8e44ad;
+    color: white;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #6c3483;
+}
+
+#result {
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h2>Vérification de Note</h2>
+    <input type="number" id="note" placeholder="Entrez votre note">
+    <button onclick="verifier()">Vérifier</button>
+    <div id="result"></div>
+</div>
+
+<script>
+function verifier() {
+    let note = parseFloat(document.getElementById("note").value);
+    let result = document.getElementById("result");
+
+    if (isNaN(note)) {
+        result.innerHTML = "Entrez un nombre valide ❗";
+        result.style.color = "red";
+    }
+    else if (note < 10) {
+        result.innerHTML = "Faible ❌";
+        result.style.color = "red";
+    } 
+    else if (note < 15) {
+        result.innerHTML = "Bien 🙂";
+        result.style.color = "orange";
+    } 
+    else {
+        result.innerHTML = "Excellent 🔥";
+        result.style.color = "green";
+    }
+}
+</script>
+
+</body>
+</html>
